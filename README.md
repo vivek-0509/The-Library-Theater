@@ -19,7 +19,7 @@ An interactive web application for book and movie enthusiasts. Search, preview, 
 - Add/remove movies from your watchlist
 
 ### 📋 Watchlist Features
-- Persistent storage using localStorage
+- Persistent storage using **Local Storage**
 - One-click add/remove functionality
 - Separate sections for books and movies
 - Organized view of your entertainment queue
