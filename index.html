@@ -56,7 +56,7 @@
         </section>
     </main>
 
-    <!-- Modal for details -->
+ 
     <div id="modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
@@ -64,15 +64,15 @@
         </div>
     </div>
 
-    <!-- Load YouTube IFrame API -->
+  
     <script>
-        // Load YouTube IFrame API
+       
         var tag = document.createElement('script');
         tag.src = "https://www.youtube.com/iframe_api";
         var firstScriptTag = document.getElementsByTagName('script')[0];
         firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        // This function will be called when the API is ready
+       
         function onYouTubeIframeAPIReady() {
             console.log('YouTube IFrame API is ready');
         }
