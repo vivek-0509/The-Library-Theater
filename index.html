@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Library & Theater</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-content">
+            <h1>The Library & Theater</h1>
+            <div class="nav-links">
+                <button onclick="showSection('movies')" class="nav-btn active" id="movies-btn">Movies</button>
+                <button onclick="showSection('books')" class="nav-btn" id="books-btn">Books</button>
+                <button onclick="showSection('watchlist')" class="nav-btn" id="watchlist-btn">Watchlist</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section id="movies" class="section active">
+            <div class="search-container">
+                <input type="text" id="movie-search" placeholder="Search movies...">
+            </div>
+            <div class="content-grid" id="movies-grid">
+                <div class="loading">Loading movies...</div>
+            </div>
+        </section>
+
+        <section id="books" class="section">
+            <div class="search-container">
+                <input type="text" id="book-search" placeholder="Search books...">
+            </div>
+            <div class="content-grid" id="books-grid">
+                <div class="loading">Loading books...</div>
+            </div>
+        </section>
+
+        <section id="watchlist" class="section">
+            <div class="watchlist-container">
+                <h2>My Watchlist</h2>
+                <div class="watchlist-controls">
+                    <button onclick="switchWatchlistView('movies')" class="watchlist-switch active" id="watchlist-movies-btn">Movies</button>
+                    <button onclick="switchWatchlistView('books')" class="watchlist-switch" id="watchlist-books-btn">Books</button>
+                </div>
+                <div class="watchlist-content">
+                    <div id="watchlist-movies" class="watchlist-section active">
+                        <div id="watchlist-movies-grid" class="content-grid"></div>
+                    </div>
+                    <div id="watchlist-books" class="watchlist-section">
+                        <div id="watchlist-books-grid" class="content-grid"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal for details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Load YouTube IFrame API -->
+    <script>
+        // Load YouTube IFrame API
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // This function will be called when the API is ready
+        function onYouTubeIframeAPIReady() {
+            console.log('YouTube IFrame API is ready');
+        }
+    </script>
+
+    <script src="app.js"></script>
+</body>
+</html>
