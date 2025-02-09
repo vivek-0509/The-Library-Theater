@@ -163,11 +163,11 @@ main {
 }
 
 .watchlist-btn.remove {
-  background-color: #c0392b;
+  background-color: #a2a2a2;
 }
 
 .watchlist-btn.remove:hover {
-  background-color: #e74c3c;
+  background-color:#a2a2a2;
 }
 
 .trailer-btn, .preview-btn {
