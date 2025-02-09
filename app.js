@@ -1,18 +1,18 @@
-// API Configuration
+
 const OMDB_API_KEY = "18927d2f";
-const YOUTUBE_API_KEY = "AIzaSyBHMsO4fncOHrAbTUGYfs5-pWYsWyrdNaU"; // Updated API key
+const YOUTUBE_API_KEY = "AIzaSyBHMsO4fncOHrAbTUGYfs5-pWYsWyrdNaU"; 
 const OMDB_BASE_URL = "https://www.omdbapi.com";
 const GOOGLE_BOOKS_API_URL = "https://www.googleapis.com/books/v1/volumes";
 const YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search";
 
-// State management
+
 let movies = [];
 let books = [];
 let watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 let youtubePlayer;
-let currentTrailerSource = "youtube"; // or 'omdb'
+let currentTrailerSource = "youtube"; 
 
-// DOM Elements
+
 const moviesGrid = document.getElementById("movies-grid");
 const booksGrid = document.getElementById("books-grid");
 const watchlistMoviesGrid = document.getElementById("watchlist-movies-grid");
@@ -28,12 +28,12 @@ async function fetchMovieTrailers(movie) {
         console.log('Starting trailer fetch for:', movie.title);
         console.log('Movie details:', movie);
 
-        // Fetch YouTube trailer
+       
         console.log('Fetching YouTube trailer...');
         const youtubeTrailer = await fetchYouTubeTrailer(movie.title, movie.year);
         console.log('YouTube trailer result:', youtubeTrailer);
 
-        // Fetch OMDB details
+       
         console.log('Fetching OMDB trailer info...');
         const omdbTrailer = await fetchOMDBTrailer(movie.id);
         console.log('OMDB trailer result:', omdbTrailer);
@@ -110,10 +110,10 @@ async function fetchOMDBTrailer(imdbId) {
         const data = await response.json();
         console.log('OMDB API response:', data);
 
-        // Check if we have a valid trailer URL in any of these fields
+      
         const possibleTrailerUrl = data.Website || data.strTrailer;
 
-        // Basic URL validation
+       
         if (possibleTrailerUrl && (
             possibleTrailerUrl.includes('youtube.com') ||
             possibleTrailerUrl.includes('imdb.com/video') ||
@@ -122,7 +122,7 @@ async function fetchOMDBTrailer(imdbId) {
             return possibleTrailerUrl;
         }
 
-        // If no valid trailer URL found, construct IMDb video page URL
+        
         return `https://www.imdb.com/title/${imdbId}/videogallery`;
     } catch (error) {
         console.error('Error fetching OMDB trailer:', error);
@@ -130,7 +130,7 @@ async function fetchOMDBTrailer(imdbId) {
     }
 }
 
-// API Functions
+
 async function fetchMovies(query = "marvel") {
     try {
         moviesGrid.innerHTML = '<div class="loading">Loading movies...</div>';
@@ -204,7 +204,7 @@ async function fetchBooks(query = "") {
     }
 }
 
-// Event Listeners
+
 let movieSearchTimeout;
 movieSearch.addEventListener("input", (e) => {
     clearTimeout(movieSearchTimeout);
@@ -276,7 +276,7 @@ function switchWatchlistView(type) {
     }
 }
 
-// Render Functions
+// Render Function
 function renderMovies() {
     if (movies.length === 0) {
         moviesGrid.innerHTML =
@@ -398,7 +398,7 @@ function toggleWatchlist(id, type) {
     renderWatchlist();
 }
 
-// Detail Views with YouTube Integration
+// YouTube Integration
 async function showMovieDetails(id) {
     const movie = movies.find(m => m.id === id);
     if (!movie) {
@@ -408,7 +408,7 @@ async function showMovieDetails(id) {
 
     console.log('Showing details for movie:', movie.title);
 
-    // Show loading state
+  
     modalContent.innerHTML = '<div class="loading">Loading trailer information...</div>';
     modal.style.display = 'block';
 
@@ -555,6 +555,6 @@ function switchTrailerSource(source) {
     });
 }
 
-// Initial data fetch
+
 fetchMovies();
 fetchBooks();
