@@ -16,7 +16,13 @@ An interactive web application for book and movie enthusiasts. Search, preview, 
 - Watch trailers via **YouTube API**  
 - Access detailed movie information:  
   - Ratings, reviews, cast, and plot  
-- Add/remove movies from your watchlist  
+- Add/remove movies from your watchlist
+
+###📋 Watchlist Features
+-Persistent storage of favorite books and movies
+-One-click add/remove functionality
+-Separate sections for books and movies
+-Organized view of your entertainment queue
 
 ## 💻 Technologies Used  
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)  
