@@ -19,24 +19,26 @@ An interactive web application for book and movie enthusiasts. Search, preview, 
 - Add/remove movies from your watchlist
 
 ### 📋 Watchlist Features
-- Persistent storage of favorite books and movies
+- Persistent storage using localStorage
 - One-click add/remove functionality
 - Separate sections for books and movies
 - Organized view of your entertainment queue
 
 ## 💻 Technologies Used  
 - **Frontend:** HTML5, CSS3, JavaScript (ES6+)  
-- **APIs:**  
-  - Google Books API  
-  - OMDB API  
-  - YouTube API  
+- **APIs Used**:  
+  - 🎬 YouTube API – Fetch and display movie trailers  
+  - 🎥 OMDB API – Fetch movie details, ratings, and trailers
+  - 📚 Google Books API – Fetch book previews and ratings    
 
 ## 🔥 What I Learned  
 - **API Integration**: Fetching & handling external data effectively  
-- **JavaScript Enhancements**:  
+- **JavaScript Enhancements**:
+  - Strengthening JavaScript skills & revisiting CSS concepts. 
   - Async/Await for API requests  
   - Error handling for better stability  
-  - DOM manipulation  
+  - DOM manipulation
+  - Local Storage Implementation 
 - **Development Best Practices**:  
   - Project structuring & planning  
   - Debugging using **Cursor AI**  
@@ -53,4 +55,5 @@ An interactive web application for book and movie enthusiasts. Search, preview, 
 - User authentication system  
 - Personalized recommendations  
 - Social sharing features  
-- Mobile application version  
+- Mobile application version
+- Enhanced watchlist management
