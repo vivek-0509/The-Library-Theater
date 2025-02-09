@@ -15,7 +15,7 @@ nav {
   background-color: #1a1a1a;
   color: #ffffff;
   padding: 1rem 0;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .nav-content {
@@ -44,11 +44,11 @@ nav {
 }
 
 .nav-btn:hover {
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .nav-btn.active {
-  background-color: rgba(255,255,255,0.15);
+  background-color: rgba(255, 255, 255, 0.15);
 }
 
 main {
@@ -90,7 +90,9 @@ main {
   gap: 2rem;
 }
 
-.loading, .error, .no-results {
+.loading,
+.error,
+.no-results {
   grid-column: 1 / -1;
   text-align: center;
   padding: 2rem;
@@ -108,26 +110,35 @@ main {
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0,0,0,0.2);
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .card-image {
+  width: 100%;
   cursor: pointer;
+  aspect-ratio: 2/3;
   position: relative;
 }
 
 .card img {
   width: 100%;
-  height: 300px;
+  height: 100%;
   object-fit: cover;
 }
 
 .card-content {
   padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  min-height: 0;
 }
 
 .card-title {
@@ -141,21 +152,38 @@ main {
   margin-bottom: 0.5rem;
 }
 
+.card-info {
+  flex-grow: 1;
+  margin-bottom: 1rem;
+}
+
 .card-actions {
   display: flex;
   gap: 0.5rem;
   flex-direction: column;
+  margin-top: auto;
+}
+
+.watchlist-btn,
+.trailer-btn,
+.preview-btn {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s;
 }
 
 .watchlist-btn {
   background-color: #2980b9;
   color: white;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  cursor: pointer;
-  width: 100%;
-  transition: background-color 0.3s;
 }
 
 .watchlist-btn:hover {
@@ -167,22 +195,13 @@ main {
 }
 
 .watchlist-btn.remove:hover {
-  background-color:#a2a2a2;
-}
-
-.trailer-btn, .preview-btn {
-  display: inline-block;
-  text-align: center;
-  text-decoration: none;
-  padding: 0.5rem;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-  width: 100%;
+  background-color: #aaaaaa;
 }
 
 .trailer-btn {
   background-color: #c0392b;
   color: white;
+  text-decoration: none;
 }
 
 .trailer-btn:hover {
@@ -192,13 +211,13 @@ main {
 .preview-btn {
   background-color: #27ae60;
   color: white;
+  text-decoration: none;
 }
 
 .preview-btn:hover {
   background-color: #2ecc71;
 }
 
-/* Watchlist toggle styles */
 .watchlist-controls {
   display: flex;
   justify-content: center;
@@ -229,7 +248,6 @@ main {
   display: block;
 }
 
-/* Modal styles */
 .modal {
   display: none;
   position: fixed;
@@ -237,7 +255,8 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.85);
+  background-color: rgba(0, 0, 0, 0.85);
+  z-index: 1000;
 }
 
 .modal-content {
@@ -251,7 +270,7 @@ main {
   max-height: 90vh;
   overflow-y: auto;
   color: #e0e0e0;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .close {
@@ -279,75 +298,55 @@ main {
   border-radius: 4px;
 }
 
-/* YouTube video container */
 .video-container {
   position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  padding-bottom: 56.25%;
   height: 0;
   margin: 1rem 0;
+  background: #000;
+  border-radius: 4px;
+  overflow: hidden;
 }
 
-.video-container iframe {
+.video-container iframe,
+.video-container #youtube-player {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: none;
-  border-radius: 4px;
 }
 
-/* Add these styles after the existing .video-container styles */
-
 .trailer-controls {
-    display: flex;
-    gap: 1rem;
-    margin: 1rem 0;
-    justify-content: center;
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+  justify-content: center;
 }
 
 .trailer-switch {
-    background: #1e1e1e;
-    color: #ffffff;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.3s;
+  background: #1e1e1e;
+  color: #ffffff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s;
 }
 
 .trailer-switch.active {
-    background: #2980b9;
+  background: #2980b9;
 }
 
 .trailer-switch:hover {
-    background: #3498db;
-}
-
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    margin: 1rem 0;
-    background: #000;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.video-container iframe,
-.video-container #youtube-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
+  background: #3498db;
 }
 
 .loading {
-    text-align: center;
-    padding: 2rem;
-    font-size: 1.2rem;
-    color: #888;
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #888;
 }
